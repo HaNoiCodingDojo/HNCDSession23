@@ -26,6 +26,10 @@ void increase_score(int & player_score)
         {
             player_score = advantage;
         }
+    if (player_score == advantage)
+        {
+            player_score = 40;
+        }
 }
 
 void player_win(int & player1_score, int & player2_score, int player_number)
