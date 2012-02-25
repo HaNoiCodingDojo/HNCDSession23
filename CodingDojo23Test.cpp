@@ -26,9 +26,15 @@ void player_win(int & player1_score, int & player2_score, int player_number)
         }
     else if (player_number == PLAYER2)
              {
-                 player2_score += 15;
+            if (player2_score == 30)
+                {
+                    player2_score += 10;
+                }
+            else if (player2_score <= 15) 
+                {
+                    player2_score += 15;
+                }
              }
-    
 }
 
 BOOST_AUTO_TEST_CASE(score_is_0_0_player1_wins_then_15_0)
