@@ -11,35 +11,33 @@ BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
 #define PLAYER1 0
 #define PLAYER2 1
 
-void player_win(int & player1_score, int & player2_score, int player_number)
+void increase_score(int & player_score)
 {
     int advantage = 50;
+    if (player_score == 30)
+        {
+            player_score += 10;
+        }
+    else if (player_score <= 15)
+        {
+            player_score += 15;
+        }
+    else if (player_score == 40)
+        {
+            player_score = advantage;
+        }
+}
+
+void player_win(int & player1_score, int & player2_score, int player_number)
+{
     if(player_number == PLAYER1)
         {
-            if (player1_score == 30)
-                {
-                    player1_score += 10;
-                }
-            else if (player1_score <= 15) 
-                {
-                    player1_score += 15;
-                }
-            else if (player1_score == 40)
-                {
-                    player1_score = advantage;
-                }
+            increase_score(player1_score);
         }
     else if (player_number == PLAYER2)
-             {
-            if (player2_score == 30)
-                {
-                    player2_score += 10;
-                }
-            else if (player2_score <= 15) 
-                {
-                    player2_score += 15;
-                }
-             }
+        {
+            increase_score(player2_score);
+        }
 }
 
 BOOST_AUTO_TEST_CASE(score_is_0_0_player1_wins_then_15_0)
