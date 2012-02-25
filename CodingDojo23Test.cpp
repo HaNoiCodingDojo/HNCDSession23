@@ -19,7 +19,7 @@ void player_win(int & player1_score, int & player2_score, int player_number)
         }
     else
         {
-            player2_score = 15;
+            player2_score += 15;
         }
 }
 
