@@ -15,7 +15,7 @@ void player_win(int & player1_score, int & player2_score, int player_number)
 {
     if(player_number == PLAYER1)
         {
-            player1_score = 15;
+            player1_score += 15;
         }
     else
         {
