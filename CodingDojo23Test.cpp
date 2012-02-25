@@ -68,6 +68,15 @@ BOOST_AUTO_TEST_CASE(score_is_15_15_player1_wins_then_30_15)
     BOOST_CHECK(player2_score == 15);
 }
 
+BOOST_AUTO_TEST_CASE(score_is_30_0_player1_wins_then_40_0)
+{
+    int player1_score = 30;
+    int player2_score = 0;
+    player_win(player1_score, player2_score, PLAYER1);
+    BOOST_CHECK(player1_score == 40);
+    BOOST_CHECK(player2_score == 0);
+}
+
 
 BOOST_AUTO_TEST_SUITE_END()
 
