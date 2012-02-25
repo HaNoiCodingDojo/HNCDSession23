@@ -13,6 +13,7 @@ BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
 
 void player_win(int & player1_score, int & player2_score, int player_number)
 {
+    int advantage = 50;
     if(player_number == PLAYER1)
         {
             if (player1_score == 30)
@@ -22,6 +23,10 @@ void player_win(int & player1_score, int & player2_score, int player_number)
             else if (player1_score <= 15) 
                 {
                     player1_score += 15;
+                }
+            else if (player1_score == 40)
+                {
+                    player1_score = advantage;
                 }
         }
     else if (player_number == PLAYER2)
