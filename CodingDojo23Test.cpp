@@ -14,6 +14,7 @@ BOOST_AUTO_TEST_SUITE(BOOST_TEST_MODULE)
 void increase_score(int & player_score)
 {
     int advantage = 50;
+    int win = 60;
     if (player_score == 30)
         {
             player_score += 10;
@@ -26,6 +27,11 @@ void increase_score(int & player_score)
         {
             player_score = advantage;
         }
+    else if (player_score >= 40)
+        {
+            player_score = win;
+        }
+
 }
 
 void player_win(int & player1_score, int & player2_score, int player_number)
@@ -34,6 +40,7 @@ void player_win(int & player1_score, int & player2_score, int player_number)
     player_scores[PLAYER1] = player1_score;
     player_scores[PLAYER2] = player2_score;
     int advantage = 50;
+    int win = 60;
     if ((player_scores[PLAYER1] == advantage and player_number == PLAYER2) or ( player_scores[PLAYER2] == advantage and player_number == PLAYER1))
         {
             player_scores[PLAYER1] = 40;
@@ -47,6 +54,8 @@ void player_win(int & player1_score, int & player2_score, int player_number)
         {
             increase_score(player_scores[PLAYER2]);
         }
+    if(player_scores[PLAYER1] == win or player_scores[PLAYER2] == win)
+        player_scores[PLAYER1] = player_scores[PLAYER2] = 0;
     player1_score = player_scores[PLAYER1];
     player2_score = player_scores[PLAYER2];
 }
