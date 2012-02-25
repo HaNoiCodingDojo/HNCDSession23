@@ -49,10 +49,21 @@ void player_win(int & player1_score, int & player2_score, int player_number)
         }
 }
 
+void player_win2(int current_score[], int playerwin) 
+{
+    
+    // current_score[playerwin]+=15;
+} 
+
 BOOST_AUTO_TEST_CASE(score_is_0_0_player1_wins_then_15_0)
 {
     int player1_score = 0;
     int player2_score = 0;
+
+    //int current_score[] ={0,0} ;
+    //player_win2(current_score, PLAYER1);
+    // BOOST_CHECK(players[PLAYER1] == 15);
+
     player_win(player1_score, player2_score, PLAYER1);
     BOOST_CHECK(player1_score == 15);
 }
