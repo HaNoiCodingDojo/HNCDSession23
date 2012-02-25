@@ -27,7 +27,7 @@ void increase_score(int & player_score)
         {
             player_score = advantage;
         }
-    else if (player_score >= 40)
+    else if (player_score == advantage)
         {
             player_score = win;
         }
@@ -54,6 +54,9 @@ void player_win(int & player1_score, int & player2_score, int player_number)
         {
             increase_score(player_scores[PLAYER2]);
         }
+    if (player_scores[PLAYER1] == advantage and player_scores[PLAYER2] != 40)
+        player_scores[PLAYER1] = win;
+
     if(player_scores[PLAYER1] == win or player_scores[PLAYER2] == win)
         player_scores[PLAYER1] = player_scores[PLAYER2] = 0;
     player1_score = player_scores[PLAYER1];
