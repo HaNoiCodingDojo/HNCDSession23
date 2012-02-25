@@ -30,37 +30,29 @@ void increase_score(int & player_score)
 
 void player_win(int & player1_score, int & player2_score, int player_number)
 {
+    int player_scores [2];
+    player_scores[PLAYER1] = player1_score;
+    player_scores[PLAYER2] = player2_score;
     int advantage = 50;
-    if ((player1_score == advantage and player_number == PLAYER2) or ( player2_score == advantage and player_number == PLAYER1)) 
+    if ((player_scores[PLAYER1] == advantage and player_number == PLAYER2) or ( player_scores[PLAYER2] == advantage and player_number == PLAYER1))
         {
-            player1_score = 40;
-            player2_score = 40;
+            player_scores[PLAYER1] = 40;
+            player_scores[PLAYER2] = 40;
         }
-    else if(player_number == PLAYER1)
+    else if (player_number == PLAYER1)
         {
-            increase_score(player1_score);
+            increase_score(player_scores[PLAYER1]);
         }
     else if (player_number == PLAYER2)
         {
-            increase_score(player2_score);
+            increase_score(player_scores[PLAYER2]);
         }
 }
-
-void player_win2(int current_score[], int playerwin) 
-{
-    
-    // current_score[playerwin]+=15;
-} 
 
 BOOST_AUTO_TEST_CASE(score_is_0_0_player1_wins_then_15_0)
 {
     int player1_score = 0;
     int player2_score = 0;
-
-    //int current_score[] ={0,0} ;
-    //player_win2(current_score, PLAYER1);
-    // BOOST_CHECK(players[PLAYER1] == 15);
-
     player_win(player1_score, player2_score, PLAYER1);
     BOOST_CHECK(player1_score == 15);
 }
